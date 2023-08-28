@@ -4,7 +4,7 @@ using System.Threading;
 
 namespace Clase
 {
-    internal class Expendedora
+    internal abstract class Expendedora  //Clase generadora de subclases
     {
         #region  Atributos 
 
@@ -27,17 +27,19 @@ namespace Clase
             }
         }
 
+        public string Marca { get => marca; set => marca = value; }
+
         #endregion
 
         #region Metodos
-        private void Saludar()
+        public void Saludar()
         {
             Console.WriteLine(" Bienvenido, elige un producto");
         }
 
-        private void LimpiarDisplay()
+        public void LimpiarDisplay()
         {
-            Thread.Sleep(2000);
+            Thread.Sleep(2000);                 
             Console.Clear();
         }
 
@@ -69,19 +71,15 @@ namespace Clase
 
             #endregion
 
-            #region Constructor
+        #region Constructor
 
         public Expendedora()
             {
-                marca = "AMS";
+                Marca = "AMS";
                 precio = 18;
                 Saludar();
                 LimpiarDisplay();
-                Console.WriteLine("Marca: {0}", marca);
-                LimpiarDisplay();
-                string codigo = MostrarProducto();
-                LimpiarDisplay();
-                MostrarPrecio(codigo);
+                
 
 
 
